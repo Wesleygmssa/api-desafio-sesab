@@ -1,0 +1,43 @@
+/\*\*
+
+- =========================
+- COMANDOS IMPORTANTES LARAVEL
+- =========================
+-
+- ▶️ Rodar servidor
+- php artisan serve
+-
+- ▶️ Criar migration
+- php artisan make:migration create_users_table
+-
+- ▶️ Criar migration com tabela
+- php artisan make:migration create_profiles_table --create=profiles
+-
+- ▶️ Alterar tabela existente
+- php artisan make:migration add_column_to_users_table --table=users
+-
+- ▶️ Rodar migrations
+- php artisan migrate
+-
+- ▶️ Voltar última migration
+- php artisan migrate:rollback
+-
+- ▶️ Resetar todas as migrations
+- php artisan migrate:reset
+-
+- ▶️ Resetar e rodar tudo de novo (CUIDADO ⚠️)
+- php artisan migrate:fresh
+-
+- ▶️ Rodar seeders
+- php artisan db:seed
+-
+- ▶️ Rodar migrate + seed
+- php artisan migrate:fresh --seed
+-
+- =========================
+- COMANDOS LINUX
+- =========================
+-
+- ⚠️ CUIDADO: apaga tudo sem perguntar
+- rm -rf api
+- \*/

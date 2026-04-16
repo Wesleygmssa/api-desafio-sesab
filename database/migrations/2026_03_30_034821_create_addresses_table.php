@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('address_user', function (Blueprint $table) {
-             $table->id();
+        Schema::create('addresses', function (Blueprint $table) {
+           $table->id();
             $table->string('logradouro');
             $table->string('cep');
             $table->timestamps();
 
-             });
+        });
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('address_user');
+        Schema::dropIfExists('addresses');
     }
 };

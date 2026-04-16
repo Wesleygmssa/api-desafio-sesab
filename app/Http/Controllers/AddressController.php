@@ -3,46 +3,56 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Address;
 
 class AddressController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+  public function index()
+{
+    // return response()->json([ //
+    //     'ok' => true // chamada de teste para verificar se a rota está funcionando corretamente
+    // ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    $addresses = Address::all(); // Recupera todos os endereços do banco de dados
+    return response()->json($addresses); // Retorna os endereços em formato JSON
+}
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'logradouro' => 'required|string',
+            'cep' => 'required|string'
+        ]);
+
+        $address = Address::create($data);
+
+        return response()->json($address, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        $address = Address::findOrFail($id);
+        return response()->json($address);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $address = Address::findOrFail($id);
+
+        $data = $request->validate([
+            'logradouro' => 'required|string',
+            'cep' => 'required|string'
+        ]);
+
+        $address->update($data);
+
+        return response()->json($address);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $address = Address::findOrFail($id);
+        $address->delete();
+
+        return response()->json(['message' => 'Endereço excluído com sucesso']);
     }
 }
