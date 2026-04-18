@@ -1,62 +1,44 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AddressController;
 
+/*
+|--------------------------------------------------------------------------
+| ROTA PÚBLICA
+|--------------------------------------------------------------------------
+*/
+Route::post('/login', [AuthController::class, 'login']);
 
-/***********************
- * ROTAS DE USUÁRIOS
- **********************
- */
+/*
+|--------------------------------------------------------------------------
+| ROTAS PROTEGIDAS
+|--------------------------------------------------------------------------
+*/
+Route::middleware('auth:sanctum')->group(function () {
 
- Route::post('/login', function (Request $request) {
-    $user = User::where('email', $request->email)->first();
+    Route::post('/logout', [AuthController::class, 'logout']);
 
-    if (! $user || ! Hash::check($request->password, $user->password)) {
-        return response()->json(['message' => 'Credenciais inválidas'], 401);
-    }
-
-    $token = $user->createToken('app')->plainTextToken;
-
-    return response()->json(['token' => $token]);
-});
-
-
-Route::prefix('users')->group(function () {
-
-    Route::post('/', [UserController::class, 'store']);  
-        Route::get('/', [UserController::class, 'index']);      
-        Route::get('/{id}', [UserController::class, 'show']);    
-        Route::put('/{id}', [UserController::class, 'update']);  
-        Route::delete('/{id}', [UserController::class, 'destroy']); 
+    Route::prefix('users')->group(function () {
+        Route::get('/', [UserController::class, 'index']);
+        Route::post('/', [UserController::class, 'store']);
+        Route::get('/{id}', [UserController::class, 'show']);
+        Route::put('/{id}', [UserController::class, 'update']);
+        Route::delete('/{id}', [UserController::class, 'destroy']);
     });
 
+    Route::prefix('profiles')->group(function () {
+        Route::get('/', [ProfileController::class, 'index']);
+        Route::post('/', [ProfileController::class, 'store']);
+        Route::delete('/{id}', [ProfileController::class, 'destroy']);
+    });
 
+    Route::prefix('addresses')->group(function () {
+        Route::get('/', [AddressController::class, 'index']);
+        Route::post('/', [AddressController::class, 'store']);
+    });
 
-/**
- * =========================
- * ROTAS DE ENDEREÇOS
- * =========================
- */
-
-Route::prefix('addresses')->group(function () {
-    Route::get('/', [AddressController::class, 'index']);    
-    Route::post('/', [AddressController::class, 'store']);   
 });
-
-
-/**
- * =========================
- * ROTAS DE PERFIS E ENDEREÇOS
- * =========================
- */
-
-
-Route::prefix('profiles')->group(function () {
-    Route::get('/', [ProfileController::class, 'index']);    
-    Route::post('/', [ProfileController::class, 'store']);   
-    Route::delete('/{id}', [ProfileController::class, 'destroy']);  
-});
-
-

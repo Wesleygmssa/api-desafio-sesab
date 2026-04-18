@@ -4,6 +4,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
+use Throwable;
+use Illuminate\Http\Request;
+
+
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
@@ -22,12 +26,12 @@ return Application::configure(basePath: dirname(__DIR__))
             //
         ]);
     })
- ->withExceptions(function (Exceptions $exceptions): void {
-    $exceptions->render(function (Throwable $e, Request $request) {
-        return response()->json([
-            'error' => true,
-            'message' => $e->getMessage(),
-        ], 500);
-    });
-})
+        ->withExceptions(function (Exceptions $exceptions): void {
+            $exceptions->render(function (Throwable $e, Request $request) {
+                return response()->json([
+                    'error' => true,
+                    'message' => $e->getMessage(),
+                ], 500);
+            });
+        })
     ->create();

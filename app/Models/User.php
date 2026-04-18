@@ -2,42 +2,32 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class User extends Model
+class User extends Authenticatable
 {
-   protected $fillable = [
-    'nome',
-    'email',
-    'cpf',
-    'profile_id',
-    'session_id'
-];
+    use HasApiTokens, Notifiable;
 
-    /**
-     * Gera session_id automaticamente ao criar usuário
-     */
-    protected static function booted()
-    {
-        static::creating(function ($user) {
-            if (empty($user->session_id)) {
-                $user->session_id = Str::uuid();
-            }
-        });
-    }
+    protected $fillable = [
+        'nome',
+        'email',
+        'cpf',
+        'password',
+        'profile_id',
+        'session_id'
+    ];
 
-    /**
-     * Relacionamento com Profile
-     */
+    protected $hidden = [
+        'password',
+    ];
+
     public function profile()
     {
         return $this->belongsTo(Profile::class);
     }
 
-    /**
-     * Relacionamento com Address (N:N)
-     */
     public function addresses()
     {
         return $this->belongsToMany(Address::class);
