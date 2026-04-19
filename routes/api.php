@@ -39,6 +39,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('addresses')->group(function () {
         Route::get('/', [AddressController::class, 'index']);
         Route::post('/', [AddressController::class, 'store']);
+        Route::delete('/{id}', [AddressController::class, 'destroy']);
     });
 
 });

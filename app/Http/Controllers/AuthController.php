@@ -9,6 +9,9 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
+            // return response()->json([ //
+    //     'ok' => true // chamada de teste para verificar se a rota está funcionando corretamente
+    // ]);
         $credentials = $request->validate([
             'email'    => 'required|email',
             'password' => 'required'

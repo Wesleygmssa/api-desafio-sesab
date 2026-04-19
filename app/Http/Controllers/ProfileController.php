@@ -9,6 +9,10 @@ class ProfileController extends Controller
 {
     public function index()
     {
+
+        // return response()->json([ //
+        //     'ok' => true // chamada de teste para verificar se a rota está funcionando corretamente
+        // ]);
         return response()->json(Profile::all());
     }
 
