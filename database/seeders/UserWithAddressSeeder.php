@@ -26,8 +26,8 @@ class UserWithAddressSeeder extends Seeder
 
         // Usuário 2
         $user2 = User::create([
-            'nome'       => 'Wesley Guerra',
-            'email'      => 'wesleyguerra@teste.com',
+            'nome'       => 'Camila Rocha',
+            'email'      => 'camilarocha@teste.com',
             'cpf'        => '04230530546',
             // 'password'   => Hash::make('senha456'),
             'profile_id' => 3,
