@@ -12,10 +12,10 @@ Projeto desenvolvido em **Laravel (PHP)** para o desafio técnico da SEASB.
 ## 🧰 Tecnologias
 
 - PHP 8+
-- Laravel
-- SQLite
-- Composer
-- Vite
+- Laravel Framework 13.5.0
+- SQLite version 3.45.1
+- Composer version 2.9.5
+- Vite version 8.0.9
 
 ### 1. Clonar o repositório
 
