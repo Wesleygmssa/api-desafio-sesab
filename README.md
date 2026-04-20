@@ -72,7 +72,6 @@ php artisan serve
 - `database/`: Contém as migrações, seeders e fábricas para o banco de dados.
 - `resources/`: Contém as views, arquivos de idioma e ativos como CSS e JavaScript.
 - `routes/`: Contém os arquivos de rotas para a aplicação.
-- `tests/`: Contém os testes automatizados para a aplicação.
 
 ## 📝 Licença
 
