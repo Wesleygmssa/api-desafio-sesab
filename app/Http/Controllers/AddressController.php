@@ -16,17 +16,25 @@ class AddressController extends Controller
     $addresses = Address::all(); // Recupera todos os endereços do banco de dados
     return response()->json($addresses); // Retorna os endereços em formato JSON
 }
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'logradouro' => 'required|string',
-            'cep' => 'required|string'
-        ]);
+  public function store(Request $request)
+        {
+            $data = $request->validate([
+                'logradouro' => 'required|string|max:255',
+                'numero' => 'nullable|string|max:20',
+                'complemento' => 'nullable|string|max:255',
+                'bairro' => 'required|string|max:255',
+                'cidade' => 'required|string|max:255',
+                'estado' => 'required|string|size:2',
+                'cep' => 'required|string|size:9'
+            ]);
 
-        $address = Address::create($data);
+            $address = Address::create($data);
 
-        return response()->json($address, 201);
-    }
+            // vincula ao usuário logado
+            $request->user()->addresses()->attach($address->id);
+
+            return response()->json($address, 201);
+        }
 
     public function show(string $id)
     {

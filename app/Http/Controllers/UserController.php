@@ -16,7 +16,7 @@ class UserController extends Controller
 public function index(Request $request)
 {
     $query = User::with(['profile', 'addresses'])
-        ->orderBy('id', 'desc');
+        ->orderBy('id', 'asc');
 
     if ($request->filled('nome')) {
         $query->where('nome', 'like', '%' . $request->nome . '%');
@@ -35,7 +35,7 @@ public function index(Request $request)
         $query->whereDate('created_at', '<=', $request->data_fim);
     }
 
-    $users = $query->paginate(5);
+    $users = $query->paginate(8);
 
     return response()->json($users);
 }
