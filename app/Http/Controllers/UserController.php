@@ -70,7 +70,11 @@ public function index(Request $request)
             'profile_id' => $data['profile_id'],
             'session_id' => Str::uuid(),
         ]);
-
+        /**
+         * VINCULAR ENDEREÇOS AO USUÁRIO (SE FORNECIDOS)
+         *  O MÉTODO SYNC VAI SINCRONIZAR OS ENDEREÇOS ASSOCIADOS AO USUÁRIO, 
+         * ADICIONANDO OS NOVOS E REMOVENDO OS QUE NÃO ESTIVEREM NA LISTA FORNECIDA.
+         */
         if (!empty($data['addresses'])) {
             $user->addresses()->sync($data['addresses']);
         }
