@@ -56,6 +56,7 @@ public function index(Request $request)
         ],[
            'email.unique' => 'Já existe um usuário com este e-mail.',
            'cpf.unique'   => 'Já existe um usuário com este CPF.',
+           'nome.unique' => 'O campo nome é obrigatório.',
         ]);
 
         //  password opcional
