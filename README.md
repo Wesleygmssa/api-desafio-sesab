@@ -41,8 +41,23 @@ cp .env.example .env
 
 ### 5. Rodar as migrações e seeders
 
+⚠️ Observação importante:
+
+Após configurar o projeto, é necessário rodar o seed para criar o usuário administrador padrão e permitir o acesso ao sistema.
+
+Execute o comando:
+
 ```bash
 php artisan migrate --seed
+```
+
+### 👤 Usuário administrador padrão
+
+Após executar o seed, utilize as credenciais abaixo para acessar o sistema:
+
+```
+Login: admin@teste.com
+Senha: senha123
 ```
 
 ### 6. Iniciar o servidor de desenvolvimento
