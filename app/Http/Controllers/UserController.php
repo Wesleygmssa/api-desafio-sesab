@@ -53,6 +53,9 @@ public function index(Request $request)
             'profile_id'  => 'required|exists:profiles,id',
             'addresses'   => 'nullable|array',
             'addresses.*' => 'exists:addresses,id',
+        ],[
+           'email.unique' => 'Já existe um usuário com este e-mail.',
+           'cpf.unique'   => 'Já existe um usuário com este CPF.',
         ]);
 
         //  password opcional
