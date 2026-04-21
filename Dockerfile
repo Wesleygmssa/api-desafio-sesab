@@ -11,6 +11,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY . .
 
+# 👇 AQUI (ESSENCIAL)
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
 RUN chmod -R 777 storage bootstrap/cache
 
 COPY docker/entrypoint.sh /entrypoint.sh
