@@ -26,6 +26,10 @@ return Application::configure(basePath: dirname(__DIR__))
             //
         ]);
     })
+
+    ->withMiddleware(function ($middleware) {
+    $middleware->append(\Illuminate\Http\Middleware\HandleCors::class);
+})
         ->withExceptions(function (Exceptions $exceptions): void {
             $exceptions->render(function (Throwable $e, Request $request) {
                 return response()->json([
