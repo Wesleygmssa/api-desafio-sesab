@@ -46,7 +46,7 @@ public function index(Request $request)
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nome'        => 'required|string',
+            'nome'        => 'required|string|unique:users,nome',
             'email'       => 'required|email|unique:users,email',
             'cpf'         => 'required|string|unique:users,cpf',
             'password'    => 'nullable|min:6',
@@ -56,7 +56,7 @@ public function index(Request $request)
         ],[
            'email.unique' => 'Já existe um usuário com este e-mail.',
            'cpf.unique'   => 'Já existe um usuário com este CPF.',
-           'nome.unique' => 'O campo nome é obrigatório.',
+           'nome.unique' => 'Já existe um usuário com este nome.',
         ]);
 
         //  password opcional
