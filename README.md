@@ -57,6 +57,15 @@ php artisan migrate --seed
 php artisan serve
 ```
 
+### Opcional: Rodar em docker
+
+Docker version 29.4.1
+Docker Compose version v5.1.3
+
+```bash
+sudo docker compose up --build
+```
+
 ### 👤 Usuário administrador padrão
 
 Após executar o seed, utilize as credenciais abaixo para acessar o sistema:
