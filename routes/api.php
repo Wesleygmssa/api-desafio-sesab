@@ -33,12 +33,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('profiles')->group(function () {
         Route::get('/', [ProfileController::class, 'index']);
         Route::post('/', [ProfileController::class, 'store']);
+        Route::put('/{id}', [ProfileController::class, 'update']);
         Route::delete('/{id}', [ProfileController::class, 'destroy']);
     });
 
     Route::prefix('addresses')->group(function () {
         Route::get('/', [AddressController::class, 'index']);
         Route::post('/', [AddressController::class, 'store']);
+        Route::put('/{id}', [AddressController::class, 'update']);
         Route::delete('/{id}', [AddressController::class, 'destroy']);
     });
 
