@@ -16,6 +16,8 @@ Projeto desenvolvido em **Laravel (PHP)** para o desafio técnico da SEASB.
 - SQLite version 3.45.1
 - Composer version 2.9.5
 - Vite version 8.0.9
+- Docker version 29.4.1
+- Docker Compose version v5.1.3
 
 ### 1. Clonar o repositório
 
@@ -51,6 +53,10 @@ Execute o comando:
 php artisan migrate --seed
 ```
 
+## Terminal comando para rodar as migrações e seeders
+
+![Exclusão](./screenshots/migrate.png)
+
 ### 6. Iniciar o servidor de desenvolvimento
 
 ```bash
@@ -59,8 +65,10 @@ php artisan serve
 
 ### Opcional: Rodar em docker
 
+```
 Docker version 29.4.1
 Docker Compose version v5.1.3
+```
 
 ```bash
 sudo docker compose up --build
