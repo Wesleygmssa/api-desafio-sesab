@@ -51,6 +51,12 @@ Execute o comando:
 php artisan migrate --seed
 ```
 
+### 6. Iniciar o servidor de desenvolvimento
+
+```bash
+php artisan serve
+```
+
 ### 👤 Usuário administrador padrão
 
 Após executar o seed, utilize as credenciais abaixo para acessar o sistema:
@@ -58,12 +64,6 @@ Após executar o seed, utilize as credenciais abaixo para acessar o sistema:
 ```
 Login: admin@teste.com
 Senha: senha123
-```
-
-### 6. Iniciar o servidor de desenvolvimento
-
-```bash
-php artisan serve
 ```
 
 ## 📂 Estrutura do Projeto
