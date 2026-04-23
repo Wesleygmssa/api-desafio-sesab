@@ -22,8 +22,8 @@ Projeto desenvolvido em **Laravel (PHP)** para o desafio técnico da SEASB.
 ### 1. Clonar o repositório
 
 ```bash
-git clone git@github.com:Wesleygmssa/api-desafio-sesab.git
-cd api-desafio-sesab
+git clone git@github.com:Wesleygmssa/vue-desafio-sesab.git
+cd vue-desafio-sesab
 ```
 
 ### 2. Instalar dependências
