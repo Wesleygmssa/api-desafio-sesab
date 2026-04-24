@@ -22,7 +22,7 @@ Projeto desenvolvido em **Laravel (PHP)** para o desafio técnico da SEASB.
 ### 1. Clonar o repositório
 
 ```bash
-git clone ggit@github.com:Wesleygmssa/api-desafio-sesab.git
+git clone git@github.com:Wesleygmssa/api-desafio-sesab.git
 cd api-desafio-sesab
 ```
 
