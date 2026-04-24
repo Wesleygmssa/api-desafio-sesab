@@ -33,15 +33,9 @@ composer install
 npm install
 ```
 
-### 3. Configurar o ambiente
 
-Copie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, especialmente a conexão com o banco de dados.
 
-```bash
-cp .env.example .env
-```
-
-### 5. Rodar as migrações e seeders
+### 3. Rodar as migrações e seeders
 
 ⚠️ Observação importante:
 
